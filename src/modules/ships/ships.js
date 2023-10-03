@@ -13,4 +13,10 @@ class Ship {
   }
 }
 
-export { submarine };
+const submarine = new Ship(3);
+const carrier = new Ship(5);
+const sailBoat = new Ship(2);
+const warShip = new Ship(4);
+const cargoShip = new Ship(4);
+
+export { submarine, carrier, cargoShip, sailBoat, warShip };

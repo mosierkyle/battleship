@@ -1,1 +1,0 @@
-(()=>{"use strict";new class{constructor(s){this.len=s,this.hits=0,this.sunk=!1}isSunk(){return this.hits>=this.len}hit(){return this.hits+=1}}(3)})();
