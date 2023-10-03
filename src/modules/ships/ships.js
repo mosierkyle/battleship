@@ -19,4 +19,4 @@ const sailBoat = new Ship(2);
 const warShip = new Ship(4);
 const cargoShip = new Ship(4);
 
-export { submarine, carrier, cargoShip, sailBoat, warShip };
+export { submarine, carrier, cargoShip, sailBoat, warShip, Ship };
