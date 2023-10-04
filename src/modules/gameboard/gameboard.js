@@ -65,16 +65,20 @@ class GameBoard {
   }
 
   placeShip(ship, orientation, x, y) {
+    const placedShip = [];
     if (orientation == 2) {
       for (let i = y; i < ship.len + y; i++) {
         this.board[x][i][2] = ship;
+        placedShip.push([x, i]);
       }
     }
     if (orientation == 1) {
       for (let i = x; i < ship.len + x; i++) {
         this.board[i][y][2] = ship;
+        placedShip.push([i, y]);
       }
     }
+    return placedShip;
   }
 
   recieveAttack(x, y) {
@@ -94,18 +98,18 @@ class GameBoard {
     }
   }
 
-  shipsSunk() {
+  shipsSunk(totalShips = this.ships.length) {
     let sunkCount = 0;
-    for (let i = 0; i < this.ships.length; i++) {
+    for (let i = 0; i < totalShips; i++) {
       if (this.ships[i].isSunk()) {
         sunkCount += 1;
       }
     }
-    return sunkCount > this.ships.length ? true : false;
+    return sunkCount >= totalShips ? true : false;
   }
 }
 
 const game = new GameBoard();
 game.addShips();
 
-export { game };
+export { game, GameBoard };
