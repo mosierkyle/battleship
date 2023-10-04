@@ -1,5 +1,6 @@
 class Ship {
-  constructor(len) {
+  constructor(len, name) {
+    this.name = name;
     this.len = len;
     this.hits = 0;
     this.sunk = false;
@@ -13,10 +14,10 @@ class Ship {
   }
 }
 
-const submarine = new Ship(3);
-const carrier = new Ship(5);
-const sailBoat = new Ship(2);
-const warShip = new Ship(4);
-const cargoShip = new Ship(4);
+const submarine = new Ship(3, 'submarine');
+const carrier = new Ship(5, 'carrier');
+const sailBoat = new Ship(2, 'sailBoat');
+const warShip = new Ship(4, 'warShip');
+const cargoShip = new Ship(4, 'cargoShip');
 
 export { submarine, carrier, cargoShip, sailBoat, warShip, Ship };
