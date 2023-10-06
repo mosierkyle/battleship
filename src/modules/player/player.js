@@ -12,6 +12,12 @@ class Player {
   takeShot(x, y, board) {
     return board.recieveAttack(x, y);
   }
+
+  takeRandomShot(board) {
+    let randomX = Math.floor(Math.random() * 10);
+    let randomY = Math.floor(Math.random() * 10);
+    return board.recieveAttack(randomX, randomY);
+  }
 }
 
 export { Player };

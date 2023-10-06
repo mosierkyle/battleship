@@ -26,7 +26,12 @@ test('Take shot and already gone there', () => {
   expect(player1.takeShot(0, 0, testBoard)).toBe('you already went there');
 });
 
-// test('Make random shot and hit ');
+test('Make random shot and hit', () => {
+  const testBoard = new GameBoard();
+  const player1 = new Player('player1');
+  testBoard.placeShip(testBoard.submarine, 2, 0, 0);
+  expect(player1.takeRandomShot(testBoard)).toBe('miss');
+});
 
 // test('Take random shot and miss');
 
