@@ -1,11 +1,4 @@
-import {
-  Ship,
-  submarine,
-  carrier,
-  cargoShip,
-  sailBoat,
-  warShip,
-} from '/Users/kylemosier/repos/battleship/src/modules/ships/ships';
+import { Ship } from '/Users/kylemosier/repos/battleship/src/modules/ships/ships';
 
 const createGameBoard = () => {
   let board = [];
@@ -25,7 +18,18 @@ class GameBoard {
     this.board = createGameBoard();
     this.missedAttacks = [];
     this.hits = [];
-    this.ships = [submarine, sailBoat, cargoShip, carrier, warShip];
+    this.submarine = new Ship(3, 'submarine');
+    this.sailBoat = new Ship(2, 'sailBoat');
+    this.cargoShip = new Ship(4, 'cargoShip');
+    this.carrier = new Ship(5, 'carrier');
+    this.warShip = new Ship(4, 'warShip');
+    this.ships = [
+      this.submarine,
+      this.sailBoat,
+      this.cargoShip,
+      this.carrier,
+      this.warShip,
+    ];
   }
 
   addShips() {
@@ -82,11 +86,10 @@ class GameBoard {
   }
 
   recieveAttack(x, y) {
-    if (this.hits.includes([x, y]) || this.missedAttacks.includes([x, y])) {
-      return 'you already went there';
-    }
     const square = this.board[x][y][2];
-    if (square == 'empty') {
+    if (square == 'miss' || square == 'hit') {
+      return 'you already went there';
+    } else if (square == 'empty') {
       this.board[x][y][2] = 'miss';
       this.missedAttacks.push([x, y]);
       return 'miss';

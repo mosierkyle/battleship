@@ -1,8 +1,9 @@
 import { sailBoat, submarine } from '../ships/ships.js';
-import { GameBoard, game } from './gameboard.js';
+import { GameBoard } from './gameboard.js';
 
 test('Can Place Ship', () => {
-  expect(game.placeShip(submarine, 2, 0, 0)).toStrictEqual([
+  const testBoard = new GameBoard();
+  expect(testBoard.placeShip(testBoard.submarine, 2, 0, 0)).toStrictEqual([
     [0, 0],
     [0, 1],
     [0, 2],
@@ -11,14 +12,14 @@ test('Can Place Ship', () => {
 
 test('Can recieve attacks', () => {
   const testBoard = new GameBoard();
-  testBoard.placeShip(submarine, 2, 0, 0);
+  testBoard.placeShip(testBoard.submarine, 2, 0, 0);
   expect(testBoard.recieveAttack(0, 0)).toBe('hit');
   expect(testBoard.recieveAttack(9, 9)).toBe('miss');
 });
 
 test('Can tell if ships are sunk', () => {
   const testBoard = new GameBoard();
-  testBoard.placeShip(submarine, 2, 0, 0);
+  testBoard.placeShip(testBoard.submarine, 2, 0, 0);
   testBoard.recieveAttack(0, 0);
   testBoard.recieveAttack(0, 1);
   testBoard.recieveAttack(0, 2);
@@ -27,7 +28,7 @@ test('Can tell if ships are sunk', () => {
 
 test('Can tell if ships are not sunk', () => {
   const testBoard = new GameBoard();
-  testBoard.placeShip(submarine, 2, 0, 0);
+  testBoard.placeShip(testBoard.submarine, 2, 0, 0);
   expect(testBoard.shipsSunk()).toBe(false);
 });
 
