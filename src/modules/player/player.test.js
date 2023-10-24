@@ -32,7 +32,3 @@ test('Make random shot and hit', () => {
   testBoard.placeShip(testBoard.submarine, 2, 0, 0);
   expect(player1.takeRandomShot(testBoard)).toBe('miss');
 });
-
-// test('Take random shot and miss');
-
-// test('Take random shot and already gone there');
